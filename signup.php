@@ -11,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
 
-
-
     if(isDublicate($username)){
         echo "<script>
         alert('Dublicate entry not allowed');
@@ -20,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>";
         die();
     }
-        // Hashing password
+    // Hashing password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert into userdata table
