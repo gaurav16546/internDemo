@@ -108,7 +108,7 @@ $result = $stmt->get_result();
             echo "<div class='cart-item'>";
             echo "<img src='" . $row["image_path"] . "' alt='product image'>";
             echo "<h3>" . htmlspecialchars($row["productname"]) . "</h3>";
-            echo "<p>Price: ₹" . number_format($row["price"], 2) . "</p>";
+            echo "<p>Price: Rs." . number_format($row["price"], 2) . "</p>";
 
             echo "<form action='deletecartitem.php' method='GET'>";
             echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";

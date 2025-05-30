@@ -90,8 +90,9 @@
             text-decoration: none;
             background-color: #4CAF50;
             color: white;
-            padding: 12px 20px;
-            margin-top: 30px;
+            height: 67px;
+            padding: 18px 27px;
+            margin-top: 28px;
             font-size: 16px;
             border-radius: 5px;
             text-align: center;
@@ -137,14 +138,15 @@
             ?>
         </div>
 
-        <a href="productForm.php" class="upload-link">Upload new product</a>
         <!-- <a href="viewcart.php" class="upload-link">Show my cart</a> -->
     <?php
     } else {
         echo "No records has been found";
     }
-
     $mysqli->close();
+    ?>
+    <a href="productForm.php" class="upload-link">Upload new product</a>
+    <?php
     include_once "footer.php";
 
     ?>
