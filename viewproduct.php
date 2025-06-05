@@ -81,8 +81,9 @@
             cursor: pointer;
             width: 100%;
         }
-        .delete-from-productlist{
-            background-color:rgb(212, 34, 43);
+
+        .delete-from-productlist {
+            background-color: rgb(212, 34, 43);
             color: white;
             font-size: 16px;
             border: none;
@@ -91,8 +92,9 @@
             cursor: pointer;
             width: 100%;
         }
-        .update-from-productlist{
-            background-color:rgb(28, 40, 211);
+
+        .showupdate {
+            background-color: rgb(28, 40, 211);
             color: white;
             font-size: 16px;
             border: none;
@@ -101,6 +103,7 @@
             cursor: pointer;
             width: 100%;
         }
+
         .add-to-cart-btn:hover {
             background-color: #ff7a00;
         }
@@ -125,6 +128,15 @@
         .upload-link:active {
             background-color: #3e8e41;
         }
+
+        .updateform {
+            display: none;
+        }
+        /* .updateform{ */
+            /* height: 60px; */
+            /* width: auto; */
+/*  */
+        /* } */
     </style>
 </head>
 
@@ -151,12 +163,21 @@
                         <button class="add-to-cart-btn" type="submit">Add to Cart</button>
                     </form>
                     <form action="deletefromlist.php" method="post">
-                        <input type="hidden" name="product_id"value="<?php echo $row["productid"]; ?>">
+                        <input type="hidden" name="product_id" value="<?php echo $row["productid"]; ?>">
                         <button class="delete-from-productlist" type="submit">Delete from list</button>
                     </form>
                     <form action="updatefromlist.php" method="post">
-                        <input type="hidden" name="product_id"value="<?php echo $row["productid"]; ?>">
-                        <button class="update-from-productlist" type="submit">Delete from list</button>
+                        <div class="updateform">
+                            <form action="updatefromlist.php" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="product_id" value="<?php echo $row["productid"]; ?>">
+                                <label for="name">Product Name:</label>
+                                <input type="text" name="productname" id="productname">
+                                <label for="price">Price:</label>
+                                <input type="number" name="price" id="price">
+                                <button type="submit">Upload</button>
+                            </form>
+                        </div>
+                        <button class="showupdate" type="submit">update from list</button>
                     </form>
                     <!-- <button class="add-to-cart-btn">Add to Cart</button> -->
                 </div>
@@ -177,6 +198,22 @@
     include_once "footer.php";
 
     ?>
+    <script>
+        const updateButton = document.getElementsByClassName('showupdate');
+        const updateForm = document.getElementsByClassName('updateform');
+        for (let i = 0; i < updateButton.length; i++) {
+            updateButton[i].addEventListener('click', () => {
+                if (updateForm[i].style.display !== 'flex') {
+                    updateForm[i].style.display = 'flex';
+                    updateForm[i].style.flexDirection = 'column';
+
+                } else {
+                    updateForm[i].style.display = 'none';
+                }
+
+            })
+        }
+    </script>
 </body>
 
 </html>
