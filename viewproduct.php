@@ -81,7 +81,26 @@
             cursor: pointer;
             width: 100%;
         }
-
+        .delete-from-productlist{
+            background-color:rgb(212, 34, 43);
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .update-from-productlist{
+            background-color:rgb(28, 40, 211);
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
         .add-to-cart-btn:hover {
             background-color: #ff7a00;
         }
@@ -130,6 +149,14 @@
                     <form action="addtocart.php" method="POST">
                         <input type="hidden" name="product_id" value="<?php echo $row["productid"]; ?>">
                         <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                    <form action="deletefromlist.php" method="post">
+                        <input type="hidden" name="product_id"value="<?php echo $row["productid"]; ?>">
+                        <button class="delete-from-productlist" type="submit">Delete from list</button>
+                    </form>
+                    <form action="updatefromlist.php" method="post">
+                        <input type="hidden" name="product_id"value="<?php echo $row["productid"]; ?>">
+                        <button class="update-from-productlist" type="submit">Delete from list</button>
                     </form>
                     <!-- <button class="add-to-cart-btn">Add to Cart</button> -->
                 </div>
