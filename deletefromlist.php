@@ -18,4 +18,6 @@ if($stmt->execute()){
 }else{
     echo "<script>alert('Unable to delete product successfully.'); window.location.href='viewproduct.php';</script>";
 }
+$mysqli->close();
+
 

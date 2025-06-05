@@ -38,3 +38,5 @@ if ($stmt->execute()) {
     echo "<script>alert('Unable to update info successfully');
     window.location.href='viewproduct.php'</script>";
 }
+$mysqli->close();
+
