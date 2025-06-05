@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_result($userId, $hashedPassword);
             $stmt->fetch();
             //fix password invalid problem
-            // if (password_verify($password, $hashedPassword)) {
-            if(true){
+            if (password_verify($password, $hashedPassword)) {
+            // if(true){
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['username'] = $username;
 
